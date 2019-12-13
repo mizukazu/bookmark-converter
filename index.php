@@ -23,6 +23,14 @@
 								<label class="custom-file-label" for="customFile">ファイルを選択</label>
 							</div>
 							<input class="btn btn-primary mt-2" type="submit">
+							<?php
+							if(isset($_GET['error'])) {
+								echo '<h2 class="mt-3">エラー</h2>';
+								echo '<p class="text-danger" style="font-weight: 700;">';
+								echo '※'.$_GET['error'];
+								echo '</p>';
+							}
+							?>
 						</div>
 					</form>
 				</div>
