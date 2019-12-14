@@ -12,7 +12,7 @@ class Converter {
   /**
    * コンストラクタ
    */
-	function __construct($tmp, $file_name) {
+  function __construct($tmp, $file_name) {
     $this->tmp = $tmp;
     $this->file_name = $file_name;
   }
