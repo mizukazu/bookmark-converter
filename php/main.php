@@ -2,7 +2,7 @@
 require_once('class.converter.php');
 
 $tmp = $_FILES['file']['tmp_name'];
-$file_name = '../file/'.$_FILES['file']['name'];
+$file_name = '../tmp/'.$_FILES['file']['name'];
 
 $converter = new Converter($tmp, $file_name);
 
@@ -16,8 +16,10 @@ $html = $converter->read_file();
 $data = $converter->get_add_data($html);
 
 // JSONデータの出力
-// $converter->write_json($data);
+$converter->write_json($data);
 
-echo '<pre>';
-var_dump($data);
-echo '</pre>';
+// 変換後のファイルのパスを取得
+$json_url = $converter->get_output_url();
+
+// ファイルダウンロードの実行
+$converter->download($json_url);
